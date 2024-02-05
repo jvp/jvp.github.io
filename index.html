@@ -22,13 +22,14 @@
     }
 
     #image {
-      width: 300px;
-      height: 200px;
+      width: 600px;
+      height: 600px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       display: none; /* Initially hidden */
+      object-fit: contain;
     }
 
     @keyframes bounce {
@@ -44,11 +45,12 @@
         transform: translateX(0);
       }
     }
+    
   </style>
 </head>
 <body>
   <div id="ball"></div>
-  <img id="image" src="" alt="Image" />
+  <img id="image" src="./smiley.png" alt="Image" />
 
   <button onclick="startCounter()">Start Counter</button>
 
@@ -61,7 +63,6 @@
 
       setTimeout(function() {
         ball.style.display = "none"; // Hide the ball after 30 seconds
-        image.src = "https://photos.app.goo.gl/2ZXuMFbiFxNZv6Sk7"; // Set the image URL
         image.style.display = "block"; // Show the image
       }, 30000);
     }
