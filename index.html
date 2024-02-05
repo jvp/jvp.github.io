@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #ball {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      animation: bounce 1s infinite;
+      display: none; /* Initially hidden */
+    }
+
+    #image {
+      width: 300px;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none; /* Initially hidden */
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(calc(100vw - 100px));
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <img id="image" src="" alt="Image" />
+
+  <button onclick="startCounter()">Start Counter</button>
+
+  <script>
+    function startCounter() {
+      var ball = document.getElementById("ball");
+      var image = document.getElementById("image");
+
+      ball.style.display = "block"; // Show the ball
+
+      setTimeout(function() {
+        ball.style.display = "none"; // Hide the ball after 30 seconds
+        image.src = "https://photos.app.goo.gl/2ZXuMFbiFxNZv6Sk7"; // Set the image URL
+        image.style.display = "block"; // Show the image
+      }, 30000);
+    }
+  </script>
+</body>
+</html>
